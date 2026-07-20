@@ -209,8 +209,8 @@ tr:hover td{background:rgba(0,99,230,.03);}
       <!-- FOTO LOKASI -->
       <div class="form-group" style="margin-top:14px;">
         <label style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:6px;display:block;letter-spacing:.5px;text-transform:uppercase;">
-          Foto Lokasi
-          <span style="font-size:11px;color:#9CA3AF;font-weight:400;margin-left:6px;text-transform:none;letter-spacing:0;">— opsional, maks 5MB</span>
+          Foto Lokasi *
+          <span style="font-size:11px;color:#9CA3AF;font-weight:400;margin-left:6px;text-transform:none;letter-spacing:0;">— wajib diisi, maks 5MB</span>
         </label>
         <div class="foto-wrap" id="foto-wrap" onclick="document.getElementById('f-foto').click()">
           <input type="file" id="f-foto" accept="image/*" onchange="previewFoto(this)" onclick="event.stopPropagation()">
@@ -274,7 +274,7 @@ var USERS = {
    Isi setelah deploy Code.gs sebagai Web App di spreadsheet kamu.
    Lihat PANDUAN-DEPLOY.md langkah "Hubungkan ke Spreadsheet".
    Contoh: 'https://script.google.com/macros/s/AKfycb.../exec'          */
-var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxzPTqN4uXDzvx-cPIcqBf83R0dNrePFnkkhNMgkrerBbEZ1yvFJwVehuRlNV1_QaxRzA/exec';
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxZPzno4-LdWfb3bi0ZjSwMo1jyl18QjEJPLzwcAJlWGawDlhrB5s8tSEPtkOvriNr9sw/exec';
 
 /* ===== STORAGE KEY ===== */
 var KEY = 'canvaser_leads_v1';
@@ -340,6 +340,8 @@ function tambahLead(){
   if(!nama||!wa){alert('Nama Pelanggan dan No WhatsApp wajib diisi.');return;}
 
   var fotoUrl=document.getElementById('f-foto-url').value||'';
+  if(!fotoUrl){alert('Foto Lokasi wajib diisi. Silakan pilih/ambil foto dulu sebelum menyimpan lead.');return;}
+
   var produkSel=document.getElementById('f-produk').value;
   var produkFinal = produkSel==='Lainnya' ? document.getElementById('f-produk-lain').value.trim() : produkSel;
   var payload={
