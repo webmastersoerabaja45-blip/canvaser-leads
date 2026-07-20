@@ -277,7 +277,7 @@ var USERS = {
 var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxZPzno4-LdWfb3bi0ZjSwMo1jyl18QjEJPLzwcAJlWGawDlhrB5s8tSEPtkOvriNr9sw/exec';
 
 /* ===== STORAGE KEY ===== */
-var KEY = 'canvaser_leads_v1';
+var KEY = 'leads canvaser';
 
 function getLeads(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
 function saveLeads(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
